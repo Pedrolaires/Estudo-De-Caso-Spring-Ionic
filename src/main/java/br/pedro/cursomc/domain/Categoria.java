@@ -1,12 +1,20 @@
 package br.pedro.cursomc.domain;
 
 import java.io.Serializable;
+
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Categoria implements Serializable {  // <- permite converter os objetos da classe para uma sequência de Bytes (para gravar em arquivos, etc)
 	private static final long serialVersionUID = 1L; // /\
 
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	
@@ -57,7 +65,7 @@ public class Categoria implements Serializable {  // <- permite converter os obj
 	
 	
 	
-	
+	// h2 sem criar tabelas
 	
 	
 }
