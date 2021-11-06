@@ -1,7 +1,5 @@
 package br.pedro.cursomc.resources;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +21,7 @@ public class CategoriaResource {
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id){
 		// Response entity é um objeto complexo com várias informações do protocolo http. Encapsula ( armazena) informações da resposta http para o rest service	
-		Optional<Categoria> obj = service.buscar(id);
+		Categoria obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }
