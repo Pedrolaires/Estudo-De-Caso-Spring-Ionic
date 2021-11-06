@@ -63,9 +63,4 @@ public class Categoria implements Serializable {  // <- permite converter os obj
 	}
 
 	
-	
-	
-	// h2 sem criar tabelas
-	
-	
 }
