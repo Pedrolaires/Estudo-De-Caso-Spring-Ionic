@@ -20,7 +20,8 @@ public class CategoriaResource {
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id){
-		// Response entity é um objeto complexo com várias informações do protocolo http. Encapsula ( armazena) informações da resposta http para o rest service	
+		
+		// Response entity é um objeto complexo com várias informações do protocolo http. Encapsula informações da resposta http para o rest service	
 		Categoria obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.pedro.cursomc.domain.Categoria;
 import br.pedro.cursomc.repositories.CategoriaRepository;
+import br.pedro.cursomc.services.exception.ObjectNotFoundException;
 
 // Camada de serviços
 // Chama uma operação da camada de acesso a dados (repository)
@@ -20,9 +21,11 @@ public class CategoriaService {
 	private CategoriaRepository repo;
 	
 	 
-	public Categoria buscar(Integer id) {
+	public Categoria buscar(Integer id){
 		Optional<Categoria> obj = repo.findById(id);
-			return obj.orElse(null);
-	}
-	
+		
+			return obj.orElseThrow(()-> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + " Tipo: " + Categoria.class.getName()));
+	}	
+	 
 }

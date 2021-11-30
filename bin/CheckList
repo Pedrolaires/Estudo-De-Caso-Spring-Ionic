@@ -1,0 +1,6 @@
+[ ] Atributos básicos
+[ ] Associações (Inicializadas)
+[ ] Constructors (não incluir coleções nos construtores com parâmetros)
+[ ] Getters e Setters
+[ ] HashCode e equals (padrão: somente id)
+[ ] Serializable (padrão 1L)
