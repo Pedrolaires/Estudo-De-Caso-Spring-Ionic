@@ -1,6 +1,22 @@
-[ ] Atributos básicos
+-> domínio
+[ ] Atributos básicos 
 [ ] Associações (Inicializadas)
 [ ] Constructors (não incluir coleções nos construtores com parâmetros)
 [ ] Getters e Setters
 [ ] HashCode e equals (padrão: somente id)
 [ ] Serializable (padrão 1L)
+
+-> Mapeamento(Many to One, Etc[Ainda no Domain])
+
+
+
+-> Classe Application
+[ ] Instanciar(Inserts) // em ManyToOne a associação é feita já no construtor(Ex: o Cidade c1)
+
+
+-> Criar Repository
+[ ] Na classe Application criar as dependências (@AutoWired instanciando as classes de repositório)
+[ ] Salvar no banco, respeitando a dependência(quem salvar primeiro[ex: a cidade tem apenas 1 estado, o
+																	estado pode ter 0 ou muitas cidades,
+																	salvar o estado primeiro.]
+																	
