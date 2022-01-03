@@ -20,3 +20,14 @@
 																	estado pode ter 0 ou muitas cidades,
 																	salvar o estado primeiro.]
 																	
+
+-> EndPoint
+ex: /clientes/{id}
+
+[ ] Criar Serviço
+[ ] Criar Resource
+[ ] Proteger contra serialização Json Cíclica ex: o cliente pode serializar o endereço dele porém 
+																	o endereço não pode serializar
+																	 os clientes aos quais ele pertence.
+																	 [@jsonManagedReference, 
+																	  @jsonBackReference ]
