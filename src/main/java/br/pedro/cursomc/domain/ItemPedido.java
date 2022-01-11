@@ -5,7 +5,6 @@ import java.util.Objects;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.MapsId;
 
 @Entity
 public class ItemPedido implements Serializable {
