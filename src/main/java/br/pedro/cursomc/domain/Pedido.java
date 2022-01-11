@@ -22,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED) // Mapeando subclasse, "Tabelão no sgbd"
 public class Pedido implements Serializable {
 	public static final long serialVersionUID = 1L;
 	
@@ -116,7 +115,5 @@ public class Pedido implements Serializable {
 		Pedido other = (Pedido) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 	
 }

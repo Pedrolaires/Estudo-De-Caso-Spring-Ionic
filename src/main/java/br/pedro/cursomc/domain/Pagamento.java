@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
@@ -12,6 +14,7 @@ import javax.persistence.OneToOne;
 import br.pedro.cursomc.domain.enums.EstadoPagamento;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)// a estratégia (Tabelão ou 2 tabelas)
 public abstract class Pagamento implements Serializable{
 	private static final long serialVersionUID = 1L;
 
