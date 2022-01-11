@@ -6,21 +6,21 @@ import java.util.Objects;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class ItemPedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore
 	@EmbeddedId // Id embutido em um tipo auxiliar
-
 	private ItemPedidoPK id = new ItemPedidoPK(); // atributo composto
 	
 	private Double desconto;
 	private Integer quantidade;
 	private Double preco;
 	
-	public ItemPedido() {
-		
-	}
+	public ItemPedido() {}
 	// associações feitas no ItemPedidoPK
 	
 	public ItemPedido(Pedido pedido, Produto produto, Double desconto, Integer quantidade, Double preco) { // troquei o itemPedidoPK por "pedido" e "produto" pois "itemPedidoPK" é do um objeto a parte
@@ -64,6 +64,7 @@ public class ItemPedido implements Serializable {
 		this.preco = preco;
 	}
 	
+	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();
 	}
