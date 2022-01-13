@@ -12,7 +12,8 @@ public class CategoriaDTO implements Serializable{
 	
 	private Integer id;
 	
-	@NotNull(message = "o valor não pode ser nulo!")
+
+	@NotNull
 	@Size(min = 5, max = 50, message = "O valor deve ter entre 5 e 50 caracteres")
 	private String nome;
 	
