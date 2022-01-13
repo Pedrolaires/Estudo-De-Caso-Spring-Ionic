@@ -1,6 +1,8 @@
 package br.pedro.cursomc.resources;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.pedro.cursomc.domain.Categoria;
+import br.pedro.cursomc.dto.CategoriaDTO;
 import br.pedro.cursomc.services.CategoriaService;
 // Controlador Rest - Acessa o serviço
 @RestController
@@ -54,5 +57,15 @@ public class CategoriaResource {
 		
 		service.delete(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<CategoriaDTO>> findAll(){
+		
+		List<Categoria> objList = service.findAll();
+		
+		List<CategoriaDTO> objListDto = objList.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
+		
+		return ResponseEntity.ok().body(objListDto);
 	}
 }
