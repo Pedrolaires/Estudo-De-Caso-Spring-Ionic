@@ -2,8 +2,9 @@ package br.pedro.cursomc.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 import br.pedro.cursomc.domain.Categoria;
 
@@ -13,8 +14,8 @@ public class CategoriaDTO implements Serializable{
 	private Integer id;
 	
 
-	@NotNull
-	@Size(min = 5, max = 50, message = "O valor deve ter entre 5 e 50 caracteres")
+	@NotEmpty(message="Preenchimento obrigatorio")
+	@Length(min = 5, max = 50, message = "O valor deve ter entre 5 e 50 caracteres")
 	private String nome;
 	
 	public CategoriaDTO() {
