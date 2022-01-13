@@ -2,12 +2,18 @@ package br.pedro.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import br.pedro.cursomc.domain.Categoria;
 
 public class CategoriaDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
+	
+	@NotNull(message = "o valor não pode ser nulo!")
+	@Size(min = 5, max = 50, message = "O valor deve ter entre 5 e 50 caracteres")
 	private String nome;
 	
 	public CategoriaDTO() {
