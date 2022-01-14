@@ -2,9 +2,9 @@ package br.pedro.cursomc.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.pedro.cursomc.domain.Pedido;
@@ -18,7 +18,7 @@ public class PedidoResource {
 	private PedidoService service;
 	
 	
-	@RequestMapping(value="/{id}",method = RequestMethod.GET)
+	@GetMapping(value="/{id}")
 	public ResponseEntity<Pedido> find(@PathVariable Integer id){
 		
 

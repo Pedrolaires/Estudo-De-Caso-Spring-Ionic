@@ -8,10 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -28,7 +31,7 @@ public class CategoriaResource {
 	private CategoriaService service;
 	
 	
-	@RequestMapping(value="/{id}",method = RequestMethod.GET)
+	@GetMapping(value="/{id}")
 	public ResponseEntity<Categoria> find(@PathVariable Integer id){
 		
 		// Response entity é um objeto complexo com várias informações do protocolo http. Encapsula informações da resposta http para o rest service	
@@ -36,7 +39,7 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST) //@RequestBody converte o json para um obj java
+	@PostMapping						//@RequestBody converte o json para um obj java
 	public ResponseEntity<Void> insert(@Validated @RequestBody CategoriaDTO objDto){
 		Categoria obj = service.fromDTO(objDto);
 		obj = service.insert(obj);
@@ -47,7 +50,7 @@ public class CategoriaResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@RequestMapping(value ="/{id}", method = RequestMethod.PUT)
+	@PutMapping(value ="/{id}")
 	public ResponseEntity<Void> update(@Validated @RequestBody CategoriaDTO objDto, @PathVariable Integer id){
 		
 		Categoria obj = service.fromDTO(objDto);
@@ -58,14 +61,14 @@ public class CategoriaResource {
 		
 	}
 	
-	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
+	@DeleteMapping(value="/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
 		
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public ResponseEntity<List<CategoriaDTO>> findAll(){
 		
 		List<Categoria> objList = service.findAll();
@@ -74,7 +77,7 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(objListDto);
 	}
 	
-	@RequestMapping(value="/page",method = RequestMethod.GET)
+	@GetMapping(value="/page")
 	public ResponseEntity<Page<CategoriaDTO>> findPage(
 			@RequestParam(value="page", defaultValue = "0")Integer page,
 			@RequestParam(value="linesPerPage", defaultValue = "24")Integer linesPerPage,

@@ -33,6 +33,7 @@ import br.pedro.cursomc.repositories.ProdutoRepository;
 
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner {
+	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
